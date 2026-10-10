@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -15,41 +12,653 @@
 
 <style>
 
-*{box-sizing:border-box}
+:root {
 
-body{margin:0;background:#101010;color:white;font-family:Arial,sans-serif}
+  --purple: #a855f7;
 
-header{padding:22px 16px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #333}
+  --black: #09090b;
 
-.logo{font-size:27px;font-weight:900}
+  --white: #ffffff;
 
-.logo span,.purple{color:#f5d000}
+  --gray: #a1a1aa;
 
-nav a{color:white;text-decoration:none;margin-left:12px;font-size:13px}
+  --card: #18181b;
 
-.hero{text-align:center;padding:85px 20px;background:linear-gradient(145deg,#242424,#090909)}
+}
 
-.hero h1{font-size:clamp(42px,10vw,76px);margin:0;font-weight:900}
+* {
 
-.hero p{color:#ccc;line-height:1.6}
+  box-sizing: border-box;
 
-.btn{display:inline-block;background:#f5d000;color:#111;padding:14px 22px;text-decoration:none;font-weight:bold;margin-top:18px;border:0;cursor:pointer}
+  margin: 0;
 
-section{padding:45px 18px;max-width:1000px;margin:auto}
+  padding: 0;
 
-h2{font-size:30px}
+}
 
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+html {
 
-.card{background:#1c1c1c;padding:16px;border:1px solid #333}
+  scroll-behavior: smooth;
 
-.product-art{height:200px;background:#292929;display:flex;align-items:center;justify-content:center;text-align:center;font-size:27px;font-weight:900}
+}
 
-.card h3{margin-bottom:5px}
+body {
 
-.card p{color:#bbb}
+  background: var(--black);
 
-footer{text-align:center;padding:30px;color:#999;border-top:1px solid #333}
+  color: var(--white);
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  line-height: 1.6;
+
+}
+
+a {
+
+  color: inherit;
+
+  text-decoration: none;
+
+}
+
+header {
+
+  position: sticky;
+
+  top: 0;
+
+  z-index: 10;
+
+  background: rgba(9, 9, 11, 0.96);
+
+  border-bottom: 1px solid #27272a;
+
+  padding: 16px 6%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 16px;
+
+}
+
+.logo {
+
+  font-size: 25px;
+
+  font-weight: 900;
+
+  letter-spacing: -1px;
+
+}
+
+.logo span {
+
+  color: var(--purple);
+
+}
+
+nav {
+
+  display: flex;
+
+  gap: 18px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+}
+
+nav a:hover {
+
+  color: var(--purple);
+
+}
+
+.hero {
+
+  min-height: 540px;
+
+  padding: 85px 7%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  background:
+
+    radial-gradient(ellipse at 85% 35%, #51217b 0%, transparent 35%),
+
+    linear-gradient(135deg, #09090b, #18121f 70%, #09090b);
+
+  border-bottom: 1px solid #27272a;
+
+}
+
+.tag {
+
+  color: var(--purple);
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  letter-spacing: 4px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 18px;
+
+}
+
+.hero h1 {
+
+  font-size: clamp(52px, 10vw, 100px);
+
+  line-height: 0.95;
+
+  letter-spacing: -5px;
+
+  font-weight: 900;
+
+  max-width: 800px;
+
+}
+
+.hero h1 span {
+
+  color: var(--purple);
+
+}
+
+.hero p {
+
+  color: #d4d4d8;
+
+  margin: 25px 0;
+
+  max-width: 440px;
+
+}
+
+.button {
+
+  display: inline-block;
+
+  padding: 13px 24px;
+
+  background: var(--purple);
+
+  color: white;
+
+  font-weight: 800;
+
+  border: 1px solid var(--purple);
+
+  transition: 0.2s;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  text-align: center;
+
+}
+
+.button:hover {
+
+  background: transparent;
+
+  color: var(--purple);
+
+}
+
+.button-outline {
+
+  background: transparent;
+
+  border-color: #52525b;
+
+}
+
+.button-outline:hover {
+
+  border-color: var(--purple);
+
+}
+
+.section {
+
+  padding: 75px 6%;
+
+}
+
+.section-heading {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-end;
+
+  gap: 20px;
+
+  margin-bottom: 35px;
+
+}
+
+.section-heading h2 {
+
+  font-size: clamp(30px, 5vw, 46px);
+
+  line-height: 1.1;
+
+  font-weight: 900;
+
+}
+
+.section-heading p {
+
+  color: var(--gray);
+
+  font-size: 13px;
+
+  margin-top: 8px;
+
+}
+
+.products {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 22px;
+
+}
+
+.product {
+
+  background: var(--card);
+
+  border: 1px solid #27272a;
+
+  overflow: hidden;
+
+  transition: transform 0.2s, border-color 0.2s;
+
+}
+
+.product:hover {
+
+  transform: translateY(-4px);
+
+  border-color: var(--purple);
+
+}
+
+.product-art {
+
+  aspect-ratio: 4 / 4.5;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+.art-hoodie {
+
+  background: linear-gradient(145deg, #30203d, #121214);
+
+}
+
+.art-tee {
+
+  background: linear-gradient(145deg, #29292e, #111113);
+
+}
+
+.art-purple {
+
+  background: linear-gradient(145deg, #52277b, #17111f);
+
+}
+
+/* Original CSS clothing illustrations */
+
+.garment {
+
+  position: relative;
+
+  width: 65%;
+
+  aspect-ratio: 0.85;
+
+  background: #111113;
+
+  clip-path: polygon(
+
+    30% 5%, 42% 0%, 58% 0%, 70% 5%,
+
+    96% 18%, 83% 39%, 73% 32%,
+
+    73% 100%, 27% 100%, 27% 32%,
+
+    17% 39%, 4% 18%
+
+  );
+
+  filter: drop-shadow(0 15px 20px rgba(0,0,0,.4));
+
+}
+
+.art-tee .garment {
+
+  width: 67%;
+
+  aspect-ratio: 0.9;
+
+  background: #f4f4f5;
+
+}
+
+.art-purple .garment {
+
+  background: #a855f7;
+
+}
+
+.garment::before {
+
+  content: "TST";
+
+  position: absolute;
+
+  top: 39%;
+
+  left: 0;
+
+  width: 100%;
+
+  text-align: center;
+
+  font-weight: 900;
+
+  font-size: clamp(20px, 3vw, 34px);
+
+  letter-spacing: -2px;
+
+  color: white;
+
+}
+
+.art-tee .garment::before {
+
+  color: #a855f7;
+
+}
+
+.garment::after {
+
+  content: "BEE";
+
+  position: absolute;
+
+  top: 50%;
+
+  left: 0;
+
+  width: 100%;
+
+  text-align: center;
+
+  font-weight: 900;
+
+  font-size: 13px;
+
+  letter-spacing: 3px;
+
+  color: #d4d4d8;
+
+}
+
+.product-info {
+
+  padding: 18px;
+
+}
+
+.product-info h3 {
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+}
+
+.product-info p {
+
+  color: var(--gray);
+
+  font-size: 12px;
+
+  margin: 4px 0 15px;
+
+}
+
+.product-info .button {
+
+  width: 100%;
+
+}
+
+.note {
+
+  font-size: 11px;
+
+  color: var(--gray);
+
+  text-align: center;
+
+  margin-top: 12px;
+
+}
+
+.story {
+
+  padding: 65px 7%;
+
+  text-align: center;
+
+  background: #15101b;
+
+  border-top: 1px solid #352342;
+
+  border-bottom: 1px solid #352342;
+
+}
+
+.story h2 {
+
+  font-size: clamp(30px, 6vw, 52px);
+
+  font-weight: 900;
+
+}
+
+.story h2 span {
+
+  color: var(--purple);
+
+}
+
+.story p {
+
+  color: #d4d4d8;
+
+  max-width: 560px;
+
+  margin: 18px auto 0;
+
+}
+
+.contact {
+
+  text-align: center;
+
+  padding: 65px 6%;
+
+}
+
+.contact p {
+
+  color: var(--gray);
+
+  margin: 12px auto 24px;
+
+  max-width: 480px;
+
+}
+
+footer {
+
+  padding: 25px 6%;
+
+  border-top: 1px solid #27272a;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+
+  color: var(--gray);
+
+  font-size: 12px;
+
+}
+
+footer strong {
+
+  color: var(--white);
+
+}
+
+@media (max-width: 700px) {
+
+  header {
+
+    padding: 14px 5%;
+
+  }
+
+  .logo {
+
+    font-size: 21px;
+
+  }
+
+  nav {
+
+    gap: 12px;
+
+    font-size: 11px;
+
+  }
+
+  .hero {
+
+    min-height: 460px;
+
+    padding: 65px 6%;
+
+  }
+
+  .hero h1 {
+
+    letter-spacing: -3px;
+
+  }
+
+  .section {
+
+    padding: 55px 5%;
+
+  }
+
+  .products {
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+
+  }
+
+  .product-info {
+
+    padding: 12px;
+
+  }
+
+  .product-info h3 {
+
+    font-size: 14px;
+
+  }
+
+  .product-info .button {
+
+    padding: 11px 5px;
+
+    font-size: 11px;
+
+  }
+
+  .section-heading {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  nav {
+
+    gap: 8px;
+
+    font-size: 10px;
+
+  }
+
+  .products {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
 
 </style>
 
@@ -59,13 +668,15 @@ footer{text-align:center;padding:30px;color:#999;border-top:1px solid #333}
 
 <header>
 
-  <div class="logo">TST <span>BEE</span> 👑</div>
+  <a href="#home" class="logo">TST <span>BEE.</span></a>
 
   <nav>
 
-    <a href="#shop">Shop</a>
+    <a href="#home">HOME</a>
 
-    <a href="#about">About</a>
+    <a href="#shop">SHOP</a>
+
+    <a href="#about">ABOUT</a>
 
   </nav>
 
@@ -73,71 +684,241 @@ footer{text-align:center;padding:30px;color:#999;border-top:1px solid #333}
 
 <main>
 
-  <div class="hero">
+  <section class="hero" id="home">
 
-    <p class="purple">RIDE / SKATE / LIFESTYLE</p>
+    <div class="tag">Independent Streetwear</div>
 
-    <h1>TST <span class="purple">BEE</span></h1>
+    <h1>
 
-    <p>Built for the ride. Made for the lifestyle.<br>
+      BUILT<br>
 
-    Streetwear for those who take their own road.</p>
+      DIFFERENT<span>.</span>
 
-    <a class="btn" href="#shop">EXPLORE THE DROP</a>
+    </h1>
 
-  </div>
+    <p>
 
-  <section id="shop">
+      TST BEE is more than clothing. It's a lifestyle.
 
-    <h2>THE <span class="yellow">COLLECTION</span></h2>
+      Everyday streetwear, bold energy, and your own lane.
 
-    <div class="products">
+    </p>
 
-      <div class="card">
+    <a class="button" href="#shop">EXPLORE THE COLLECTION ↗</a>
 
-        <div class="product-art">TST <span class="yellow">BEE</span></div>
+  </section>
 
-        <h3>Signature Hoodie</h3>
+  <section class="section" id="shop">
 
-        <p>Black streetwear hoodie concept.</p>
+    <div class="section-heading">
 
-        <a class="btn" href="mailto:tstbee@example.com?subject=Signature%20Hoodie%20Inquiry">ASK ABOUT THIS</a>
+      <div>
 
-      </div>
+        <div class="tag">The Collection</div>
 
-      <div class="card">
+        <h2>THE STREET<br>UNIFORM.</h2>
 
-        <div class="product-art">🐝 TST BEE</div>
-
-        <h3>Classic Tee</h3>
-
-        <p>Everyday TST BEE graphic tee concept.</p>
-
-        <a class="btn" href="mailto:tstbee@example.com?subject=Classic%20Tee%20Inquiry">ASK ABOUT THIS</a>
-
-      </div>
-
-      <div class="card">
-
-        <div class="product-art">RIDE<br>SKATE<br>CREATE</div>
-
-        <h3>Lifestyle Collection</h3>
-
-        <p>More designs coming soon.</p>
-
-        <a class="btn" href="mailto:tstbee@example.com?subject=New%20Collection">LEARN MORE</a>
+        <p>Black. White. Purple. Nothing ordinary.</p>
 
       </div>
 
     </div>
 
+    <div class="products">
+
+      <article class="product">
+
+        <div class="product-art art-hoodie">
+
+          <div class="garment"></div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Signature Hoodie</h3>
+
+          <p>Black / TST BEE graphic</p>
+
+          <button class="button" onclick="comingSoon()">
+
+            SHOP COMING SOON
+
+          </button>
+
+        </div>
+
+      </article>
+
+      <article class="product">
+
+        <div class="product-art art-tee">
+
+          <div class="garment"></div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Classic Logo Tee</h3>
+
+          <p>White / Purple graphic</p>
+
+          <button class="button" onclick="comingSoon()">
+
+            SHOP COMING SOON
+
+          </button>
+
+        </div>
+
+      </article>
+
+      <article class="product">
+
+        <div class="product-art art-purple">
+
+          <div class="garment"></div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Purple Edition</h3>
+
+          <p>Purple / Signature logo</p>
+
+          <button class="button" onclick="comingSoon()">
+
+            SHOP COMING SOON
+
+          </button>
+
+        </div>
+
+      </article>
+
+      <article class="product">
+
+        <div class="product-art art-tee">
+
+          <div class="garment"></div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Everyday Street Tee</h3>
+
+          <p>White / Everyday collection</p>
+
+          <button class="button" onclick="comingSoon()">
+
+            SHOP COMING SOON
+
+          </button>
+
+        </div>
+
+      </article>
+
+      <article class="product">
+
+        <div class="product-art art-purple">
+
+          <div class="garment"></div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>After Hours Hoodie</h3>
+
+          <p>Purple / Street collection</p>
+
+          <button class="button" onclick="comingSoon()">
+
+            SHOP COMING SOON
+
+          </button>
+
+        </div>
+
+      </article>
+
+      <article class="product">
+
+        <div class="product-art art-hoodie">
+
+          <div class="garment"></div>
+
+        </div>
+
+        <div class="product-info">
+
+          <h3>Core Collection</h3>
+
+          <p>Black / Signature graphic</p>
+
+          <button class="button" onclick="comingSoon()">
+
+            SHOP COMING SOON
+
+          </button>
+
+        </div>
+
+      </article>
+
+    </div>
+
+    <p class="note">
+
+      These are concept mockups. Final products, prices, and availability
+
+      will be added before the store opens.
+
+    </p>
+
   </section>
 
-  <section id="about">
+  <section class="story" id="about">
 
-    <h2>OUR <span class="yellow">WORLD</span></h2>
+    <div class="tag">The TST BEE Mindset</div>
 
-    <p>TST BEE is about riding, skating, creativity, and expressing your own style. Same roads. Different views.</p>
+    <h2>YOUR STYLE.<br><span>YOUR LANE.</span></h2>
+
+    <p>
+
+      Made for the ones who move differently.
+
+      TST BEE brings streetwear energy to everyday life.
+
+      Stay original. Build your own path. Be yourself.
+
+    </p>
+
+  </section>
+
+  <section class="contact">
+
+    <div class="tag">The Next Move</div>
+
+    <h2>THE HIVE IS GROWING.</h2>
+
+    <p>
+
+      The collection is being developed.
+
+      Check back when the official products are ready.
+
+    </p>
+
+    <a href="#shop" class="button button-outline">
+
+      VIEW THE COLLECTION
+
+    </a>
 
   </section>
 
@@ -145,13 +926,29 @@ footer{text-align:center;padding:30px;color:#999;border-top:1px solid #333}
 
 <footer>
 
-  <p><strong>TST BEE</strong> 👑</p>
+  <strong>TST <span style="color:#a855f7">BEE.</span></strong>
 
-  <p>RIDE / SKATE / LIFESTYLE</p>
+  <span>Independent Streetwear © 2026</span>
 
-  <p>© 2026 TST BEE. All rights reserved.</p>
+  <a href="#home">BACK TO TOP ↑</a>
 
 </footer>
+
+<script>
+
+function comingSoon() {
+
+  alert(
+
+    "TST BEE is getting ready to launch! " +
+
+    "Official products and checkout are coming soon."
+
+  );
+
+}
+
+</script>
 
 </body>
 
